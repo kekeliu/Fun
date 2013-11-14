@@ -1,0 +1,9 @@
+#Test data
+
+User(bob):
+username:		Bob
+userpwd:		1234
+
+User(lucy):
+username:		Lucy
+userpwd:		4567

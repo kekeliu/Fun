@@ -1,0 +1,97 @@
+html, body {
+    background: #364B66 !important;
+    font-family: Helvetica, Arial, Sans !important;
+}
+
+body {
+    width: 900px;
+    padding: 0 30px;
+    margin: auto;
+}
+
+#title{
+	position: absolute;
+    top: 10%;
+    left:40%;
+    width: 400px;
+    border: 3px solid #333;
+    padding: 20px;
+    background: #fff;
+    text-align: center;
+}
+
+#label_name{
+	position:absolute;
+	top:30%;
+	right:45%;
+    width: 200px;
+    padding: 10px;
+    background: #fff;
+    text-align: center;
+}
+
+#username{
+	position:absolute;
+	top:30%;
+	left:60%;
+    width: 200px;
+    padding: 10px;
+    background: #fff;
+    text-align: center;
+}
+
+#label_pwd{
+	position:absolute;
+	top:40%;
+	right:45%;
+    width: 200px;
+    padding: 10px;
+    background: #fff;
+    text-align: center;
+}
+
+#userpwd{
+	position:absolute;
+	top:40%;
+	left:60%;
+    width: 200px;
+    padding: 10px;
+    background: #fff;
+    text-align: center;
+}
+
+#label_content{
+	position:absolute;
+	top:50%;
+	right:45%;
+    width: 200px;
+    padding: 10px;
+    background: #fff;
+    text-align: center;
+}
+
+#usercontent{
+	position:absolute;
+	top:50%;
+	left:60%;
+    width: 200px;
+    padding: 10px;
+    background: #fff;
+    text-align: center;
+}
+
+#query{
+	position:absolute;
+	top:55%;
+	left:54%;
+	width:100px;
+	height:50px;
+}
+
+#register{
+	position:absolute;
+	top:65%;
+	left:53%;
+	width:100px;
+	height:50px;
+}
