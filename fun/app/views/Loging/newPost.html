@@ -1,0 +1,33 @@
+#{extends 'main.html' /} 
+#{set title:'New Blog' /}
+
+#{ifnot post?.id}
+    <h3>Write, <span>a new post</span></h3>
+#{/ifnot}
+#{else}
+    <h3>Edit, <span>this post</span></h3>
+#{/else}
+
+<h2 id="blogHeader">New Blog</h2>
+#{form @Loging.save(post?.id) }
+		#{ifErrors}
+			<p class="error">
+			Please correct these errors.
+			</p>
+		#{/ifErrors}
+<p>
+	#{field 'title'} 
+	<label id="post-title">Post title:</label> 
+	<input type="text" id="blog-title"name="${field.name}" value="${post?.title}" /> 
+	#{/field} 
+</p>
+<p>	
+	#{field 'content'} 
+	<label id="post-content">Post content:</label> 
+	<textarea id="blog-content" name="${field.name}">${post?.content}</textarea> 
+	#{/field}
+</p>
+<p>
+<input type="submit" id="blog-publish" value="Publish this new blog" textmode="mutliline">
+</p>
+#{/form}

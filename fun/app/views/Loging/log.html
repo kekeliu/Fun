@@ -1,6 +1,17 @@
 #{extends 'main.html' /}
 #{set title:'User Space' /}
 
-<h1>${user.username}'s Blog   <a href="@{Application.index()}">Log out</a></h1>
-<h2 id="user-name">${user.usercontent}</h2>
-
+<h1>This is ${author.username}'s Blog   <a href="@{Application.index()}">Log out</a></h1>
+<h2 id="user-name">${author.usercontent}</h2>
+<div class="blog">
+<h2>Blog List</h2>
+<p id="newPost"><a href="@{newPost()}"><span>+</span> write a new post</a></p>
+#{if posts}
+#{list items:posts, as:'post'}
+<h3>${post.content}</h3>
+#{/list}
+#{/if}
+#{else}
+<h3>There are no blogs</h3>
+#{/else}
+</div>

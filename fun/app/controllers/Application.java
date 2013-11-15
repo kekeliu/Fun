@@ -1,6 +1,7 @@
 package controllers;
 
 import play.*;
+import play.cache.Cache;
 import play.data.validation.Required;
 import play.mvc.*;
 
@@ -18,7 +19,9 @@ public class Application extends Controller {
     	User user = User.find("byUsername", username).first();
     	 validation.required(user);
     	if(user != null){
-    		Loging.log(user);
+    		 //System.out.println(user.username);
+    		session.put("usernaem", username);
+    		Loging.log(username);
     		return;
     	} else{
     		Register.register(username, userpwd);

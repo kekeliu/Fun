@@ -1,3 +1,5 @@
+/** Main layout **/
+
 html, body {
     background: #364B66 !important;
     font-family: Helvetica, Arial, Sans !important;
@@ -9,6 +11,7 @@ body {
     margin: auto;
 }
 
+/** minterface layout **/
 #title{
 	position: absolute;
     top: 10%;
@@ -94,4 +97,67 @@ body {
 	left:53%;
 	width:100px;
 	height:50px;
+}
+
+/** newPost layout **/
+
+#blogHeader{
+	position: absolute;
+    top: 5%;
+    left:10%;
+    width: 400px;
+    border: 3px solid #333;
+    padding: 20px;
+    text-align: center;
+}
+
+#post-title{
+	position:absolute;
+	top:20%;
+	left:10%;
+    width: 200px;
+    padding: 10px;
+    font-weight: 900;
+    text-align: center;
+}
+
+#blog-title{
+	position:absolute;
+	top:25%;
+	left:10%;
+    width: 400px;
+    padding: 10px;
+    text-align: center;
+}
+
+#post-content{
+	position:absolute;
+	top:33%;
+	left:10%;
+    width: 200px;
+    padding: 10px;
+    font-weight: 900;
+    text-align: center;
+}
+
+#blog-content{
+	position:absolute;
+	top:40%;
+	left:10%;
+    width:400px;
+    height:200px;
+    padding: 10px;
+    text-align: center;
+}
+
+#blog-publish{
+	position:absolute;
+	top:80%;
+	left:30%;
+	width:150px;
+	height:50px;
+}
+
+#newPost{
+	background: #fff;
 }

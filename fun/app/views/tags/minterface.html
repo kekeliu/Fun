@@ -1,11 +1,11 @@
 #{extends 'main.html' /}
 #{set title:'minterface' /}
 
-<div class="${_as}">
+<div class="post">
 <h2 id="title">The ${_as} form</h2>
 #{if _as == 'login'}
 <div id="login">
-		#{form @checkUser()} 
+		#{form @Application.checkUser()} 
 			#{if flash.error}
 				<p class="error">${flash.error}</p>
 			#{/if}
@@ -26,17 +26,17 @@
 #{/if}
 #{if _as == 'register'}
 	<div id="login">
-		#{form @registerUser()} 
+		#{form @Register.registerUser()} 
 			#{if flash.error}
 				<p class="error">${flash.error}</p>
 			#{/if}
 			<p>
 			<label id="label_name">User Name</label>
-			<input type="text" name="username" id="username" value=${username}>
+			<input type="text" name="username" id="username" value=${_username}>
 			</p>
 			<p>
 			<label id="label_pwd">User Password</label>
-			<input type="password" name="userpwd" id="userpwd" value=${userpwd}>
+			<input type="password" name="userpwd" id="userpwd" value=${_userpwd}>
 			</p>
 			<p>
 			<label id="label_content">User Content</label>
