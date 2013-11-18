@@ -35,6 +35,9 @@
 <h2>All have ${post.comments.size()} comments, latest by ${post.comments[post.comments.size()-1].author}</h2>
 <h2>${post.comments[post.comments.size()-1].content}</h2>
 #{/if}
+#{else}
+<h3>No comments</h3>
+#{/else}
 #{/form}
 #{if post.comments}
 #{form @Blog.showAllComments(post?.id)} 

@@ -10,8 +10,8 @@ public class Register extends Controller {
 		render(username, userpwd);
 	}
 	
-	public static void registerUser(String username, String userpwd, String usercontent){
-		User user = new User(username, userpwd, usercontent).save();
+	public static void registerUser(String username, String userpwd, String tags){
+		User user = new User(username, userpwd, tags).save();
 		Blog.type = 0;
 		Blog.blog(user);
 	}

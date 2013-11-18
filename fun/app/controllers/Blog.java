@@ -22,11 +22,10 @@ public class Blog extends Controller {
 		if(type == 0){
 			posts = Post.find("order by postedAt asc ").fetch();
 		}else if(type== 1){
-			String sql = "select * from Post p where p.author="+user+" order by postedAt asc";
-			posts = Post.find(sql).fetch();
-			//posts = Post.find("byAuthor order by postedAt asc", user).fetch();
+			//String sql = "select p from Post p where p.author.username="+user.username+" order by postedAt asc";
+			//posts = Post.find(sql).fetch();
+			posts = Post.find("byAuthor", user).fetch();
 		}
-	    
 		render(user, posts);
 	}
 	
