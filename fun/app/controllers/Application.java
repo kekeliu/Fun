@@ -20,6 +20,7 @@ public class Application extends Controller {
     	 validation.required(user);
     	if(user != null){
     		session.put("username", username);
+    		Blog.type = 0;
     		Blog.blog(user);
     		return;
     	} else{

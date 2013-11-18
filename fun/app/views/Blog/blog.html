@@ -2,7 +2,8 @@
 #{set title:'User Space' /}
 
 <div class="header">
-<div class="title"><h1>This is <span>${user.username}'s</span> Blog</h1></div>
+<div class="title"><h1>This is <span>${user.username}'s</span> Blog</h1>
+</div>
 <ul class="tools">
 <li>
  <a href="@{Application.index()}">Log out</a>
@@ -10,24 +11,42 @@
  </ul>
  </div>
 <div class="blog">
-<p class="newPost"><a href="@{newPost()}"><span>+</span> write a new post</a></p>
-<h2 class="bloglist">Blog list</h2>
+<p class="newPost">
+<a href="@{newPost()}"><span>+</span> write a new post</a>
+</p>
+<ul class="menu">
+<li class="${request.controller == 'AllBlogs' ?  'selected': ''}">
+<a href="@{Blog.showAllBlogs()}">AllBlogs</a>
+</li>
+<li class="${request.controller == 'MyBlogs' ?  'selected': ''}">
+<a href="@{Blog.showMyBlogs()}">MyBlogs</a>
+</li>
+</ul>
+</div>
+<div class="blogContentShow">
 #{if posts}
 #{list items:posts, as:'post'}
-<h3 class="blogAuthor">${post.author.username}   posted at ${post.postedAt.format('yyyy-MM-dd')}</h3>
+<h3 class="blogAuthor">${post.author.username}   posted at ${post.postedAt.format('HH:mm:ss-yyyy-MM-dd')}</h3>
 <h3 class="blogTitle">${post.title}</h3>
 <h3 class="blogContent">${post.content}</h3>
 #{form @Blog.publishComment(post?.id)} 
 <input type="submit" class="blogcomment" value="comment"/>
-#{showComment currentpost:post, as:'part'/}
+#{if post.comments}
+<h2>All have ${post.comments.size()} comments, latest by ${post.comments[post.comments.size()-1].author}</h2>
+<h2>${post.comments[post.comments.size()-1].content}</h2>
+#{/if}
 #{/form}
+#{if post.comments}
+#{form @Blog.showAllComments(post?.id)} 
+<input type="submit" class="commentDetail" value="detail"/>
+#{/form}
+#{/if}
 #{/list}
 #{/if}
 #{else}
 <h3>There are no blogs</h3>
 #{/else}
 </div>
-
 <p class="footer">
             I just play it for fun~.
 </p>

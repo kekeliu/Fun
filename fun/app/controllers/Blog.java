@@ -14,10 +14,19 @@ public class Blog extends Controller {
 	public static User author;
 	public static Post cPost;
 	
+	public static int type = 0;
+	
 	public static void blog(User user){
 		author = user;
-	     List<Post> posts = Post.find("order by postedAt desc").fetch();
-	     //= Post.find("byAuthor", user).fetch();
+		List<Post> posts = null;
+		if(type == 0){
+			posts = Post.find("order by postedAt asc ").fetch();
+		}else if(type== 1){
+			String sql = "select * from Post p where p.author="+user+" order by postedAt asc";
+			posts = Post.find(sql).fetch();
+			//posts = Post.find("byAuthor order by postedAt asc", user).fetch();
+		}
+	    
 		render(user, posts);
 	}
 	
@@ -35,6 +44,7 @@ public class Blog extends Controller {
 			post.content = content;
 		}
         post.save();
+        type = 0;
        blog(author);
 	}
 	
@@ -44,6 +54,7 @@ public class Blog extends Controller {
 		cPost.comments.add(ncomment);
 		ncomment.save();
 		//cPost.addComments(author.username, comment);
+		type = 0;
 		blog(author);
 	}
 	public static void publishComment(Long id){
@@ -53,5 +64,20 @@ public class Blog extends Controller {
 			cPost = newPost;
 			render(newPost);
 		}
+	}
+	
+	public static void showAllBlogs(){
+		 type = 0;
+		 blog(author);
+	}
+	
+	public static void showMyBlogs(){
+		 type = 1;
+		 blog(author);
+	}
+	
+	public static void showAllComments(Long id){
+		Post post = Post.findById(id);
+		render(post);
 	}
 }
