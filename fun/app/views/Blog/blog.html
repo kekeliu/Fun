@@ -1,0 +1,33 @@
+#{extends 'main.html' /}
+#{set title:'User Space' /}
+
+<div class="header">
+<div class="title"><h1>This is <span>${user.username}'s</span> Blog</h1></div>
+<ul class="tools">
+<li>
+ <a href="@{Application.index()}">Log out</a>
+ </li>
+ </ul>
+ </div>
+<div class="blog">
+<p class="newPost"><a href="@{newPost()}"><span>+</span> write a new post</a></p>
+<h2 class="bloglist">Blog list</h2>
+#{if posts}
+#{list items:posts, as:'post'}
+<h3 class="blogAuthor">${post.author.username}   posted at ${post.postedAt.format('yyyy-MM-dd')}</h3>
+<h3 class="blogTitle">${post.title}</h3>
+<h3 class="blogContent">${post.content}</h3>
+#{form @Blog.publishComment(post?.id)} 
+<input type="submit" class="blogcomment" value="comment"/>
+#{showComment currentpost:post, as:'part'/}
+#{/form}
+#{/list}
+#{/if}
+#{else}
+<h3>There are no blogs</h3>
+#{/else}
+</div>
+
+<p class="footer">
+            I just play it for fun~.
+</p>

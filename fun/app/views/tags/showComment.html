@@ -1,0 +1,20 @@
+#{extends 'main.html' /}
+#{set title:'showComment' /}
+
+#{if _as == 'full'}
+<h1>${_currentpost.author.username}</h1>
+<h2>${_currentpost.postedAt.format('yyyy-MM-dd')}</h2>
+<h2>${_currentpost.content}</h2>
+#{if _currentpost}
+<h3>All have ${_currentpost.comments.size()} comments</h3>
+#{list items:_currentpost.comments, as:'comment'}
+<h3>${comment.content}</h3>
+#{/list}
+#{/if}
+#{/if}
+#{if _as == 'part'}
+<h3>${_currentpost.comments.size()} comments</h3>
+#{if _currentpost.comments}
+<h3>${_currentpost.comments[0].content}</h3>
+#{/if}
+#{/if}

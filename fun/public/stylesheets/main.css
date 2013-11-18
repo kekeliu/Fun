@@ -12,7 +12,7 @@ body {
 }
 
 /** minterface layout **/
-#title{
+.minterface .title{
 	position: absolute;
     top: 10%;
     left:40%;
@@ -23,7 +23,7 @@ body {
     text-align: center;
 }
 
-#label_name{
+.minterface .login .label_name{
 	position:absolute;
 	top:30%;
 	right:45%;
@@ -33,7 +33,7 @@ body {
     text-align: center;
 }
 
-#username{
+.minterface .login .username{
 	position:absolute;
 	top:30%;
 	left:60%;
@@ -43,7 +43,7 @@ body {
     text-align: center;
 }
 
-#label_pwd{
+.minterface .login .label_pwd{
 	position:absolute;
 	top:40%;
 	right:45%;
@@ -53,7 +53,7 @@ body {
     text-align: center;
 }
 
-#userpwd{
+.minterface .login .userpwd{
 	position:absolute;
 	top:40%;
 	left:60%;
@@ -63,27 +63,7 @@ body {
     text-align: center;
 }
 
-#label_content{
-	position:absolute;
-	top:50%;
-	right:45%;
-    width: 200px;
-    padding: 10px;
-    background: #fff;
-    text-align: center;
-}
-
-#usercontent{
-	position:absolute;
-	top:50%;
-	left:60%;
-    width: 200px;
-    padding: 10px;
-    background: #fff;
-    text-align: center;
-}
-
-#query{
+.minterface .login .query{
 	position:absolute;
 	top:55%;
 	left:54%;
@@ -91,7 +71,75 @@ body {
 	height:50px;
 }
 
-#register{
+.minterface .register .label_name{
+	position:absolute;
+	top:30%;
+	right:45%;
+    width: 200px;
+    padding: 10px;
+    background: #fff;
+    text-align: center;
+}
+
+.minterface .register .username{
+	position:absolute;
+	top:30%;
+	left:60%;
+    width: 200px;
+    padding: 10px;
+    background: #fff;
+    text-align: center;
+}
+
+.minterface .register .label_pwd{
+	position:absolute;
+	top:40%;
+	right:45%;
+    width: 200px;
+    padding: 10px;
+    background: #fff;
+    text-align: center;
+}
+
+.minterface .register .userpwd{
+	position:absolute;
+	top:40%;
+	left:60%;
+    width: 200px;
+    padding: 10px;
+    background: #fff;
+    text-align: center;
+}
+
+.minterface .register .query{
+	position:absolute;
+	top:55%;
+	left:54%;
+	width:100px;
+	height:50px;
+}
+
+.minterface .register .label_content{
+	position:absolute;
+	top:50%;
+	right:45%;
+    width: 200px;
+    padding: 10px;
+    background: #fff;
+    text-align: center;
+}
+
+.minterface .register .usercontent{
+	position:absolute;
+	top:50%;
+	left:60%;
+    width: 200px;
+    padding: 10px;
+    background: #fff;
+    text-align: center;
+}
+
+.minterface .register .register{
 	position:absolute;
 	top:65%;
 	left:53%;
@@ -101,7 +149,43 @@ body {
 
 /** newPost layout **/
 
-#blogHeader{
+.blog .newPost{
+	border-top: 1px dotted #C0CBE5;
+	padding-top: 15px;
+}
+
+.blog .newPost a{
+	 background: #C88116;
+    -webkit-border-radius: 12px;
+    -moz-border-radius: 12px;
+    padding: 5px 10px;
+    font-size: 80%;
+    text-decoration: none;
+    color: #fff;
+    font-weight: bold;
+    -webkit-box-shadow: 1px 1px 2px rgba(0,0,0,.3);
+}
+
+.blog .newPost a span{
+	background: #7D510E;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    padding: 0 5px 2px 5px;
+    position: relative;
+    top: -1px;
+}
+
+.blog .bloglist{
+	display: block;
+	height: 49px;
+	color: #fff;
+    font-size: 48px;
+    font-weight: bold;
+	letter-spacing: -4px;
+    text-shadow: 1px 2px 2px #000;
+}
+
+.newBlog .blogHeader{
 	position: absolute;
     top: 5%;
     left:10%;
@@ -111,7 +195,7 @@ body {
     text-align: center;
 }
 
-#post-title{
+.newBlog .post-title{
 	position:absolute;
 	top:20%;
 	left:10%;
@@ -121,7 +205,7 @@ body {
     text-align: center;
 }
 
-#blog-title{
+.newBlog .blog-title{
 	position:absolute;
 	top:25%;
 	left:10%;
@@ -130,7 +214,7 @@ body {
     text-align: center;
 }
 
-#post-content{
+.newBlog .post-content{
 	position:absolute;
 	top:33%;
 	left:10%;
@@ -140,17 +224,18 @@ body {
     text-align: center;
 }
 
-#blog-content{
+.newBlog .blog-content{
 	position:absolute;
 	top:40%;
 	left:10%;
+	background: #fff;
     width:400px;
     height:200px;
     padding: 10px;
     text-align: center;
 }
 
-#blog-publish{
+.newBlog .blog-publish{
 	position:absolute;
 	top:80%;
 	left:30%;
@@ -158,6 +243,57 @@ body {
 	height:50px;
 }
 
-#newPost{
+.blog .blogAuthor{
+	color:#00FFFF;
+}
+
+.blog .blogTitle{
+	color:#000;
+}
+
+.blog .blogContent{
 	background: #fff;
+	width:400px;
+}
+
+.blog .blogcomment{
+	width:100px;
+	height:30px;
+}
+
+.blog .footer {
+    border-top: 1px solid #45597A;
+    font-size: 70%;
+    padding: 10px 30px;
+    text-align: center;
+    color: #869AB1;
+    margin-top: 30px;
+}
+
+.newComment .commentContent{
+	
+}
+
+.newComment .commentBtn{
+	
+}
+
+.header .tools{
+	list-style: none;
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    right: 0;
+    top: 30px;
+    right: 250px;
+    color: #869AB1;
+}
+
+.header .tools a{
+	color: #fff;
+    text-decoration: none;
+}
+
+.header .title span{
+	color: #CC0000;
 }

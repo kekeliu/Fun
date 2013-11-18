@@ -18,7 +18,7 @@ public class Post extends Model{
 	public String content;
 	public Date postedAt;
 	
-	@OneToMany(mappedBy="post", cascade=CascadeType.ALL)
+	@OneToMany(mappedBy="post", cascade=CascadeType.ALL,fetch=FetchType.EAGER)
 	public List<Comment> comments;
 	
 	public Post(User author, String title, String content){

@@ -1,52 +1,40 @@
 #{extends 'main.html' /}
 #{set title:'minterface' /}
 
-<div class="post">
-<h2 id="title">The ${_as} form</h2>
+<div class="minterface">
+<h2 class="title">The ${_as} form</h2>
 #{if _as == 'login'}
-<div id="login">
 		#{form @Application.checkUser()} 
 			#{if flash.error}
 				<p class="error">${flash.error}</p>
 			#{/if}
-			<p>
-			<label id="label_name">User Name</label>
-			<input type="text" name="username" id="username">
-			</p>
-			<p>
-			<label id="label_pwd">User Password</label>
-			<input type="password" name="userpwd" id="userpwd">
-			</p>
-			<p>
-			<label></label>
-			<input type="submit" id="query"  value="query" >
+			<p class="login">
+			<label class="label_name">User Name</label>
+			<input type="text" name="username" class="username">
+			 
+			<label class="label_pwd">User Password</label>
+			<input type="password" name="userpwd" class="userpwd">
+			<input type="submit" class="query"  value="query" >
 			</p>
 			#{/form}
-	</div>
 #{/if}
 #{if _as == 'register'}
-	<div id="login">
 		#{form @Register.registerUser()} 
 			#{if flash.error}
 				<p class="error">${flash.error}</p>
 			#{/if}
-			<p>
-			<label id="label_name">User Name</label>
-			<input type="text" name="username" id="username" value=${_username}>
-			</p>
-			<p>
-			<label id="label_pwd">User Password</label>
-			<input type="password" name="userpwd" id="userpwd" value=${_userpwd}>
-			</p>
-			<p>
-			<label id="label_content">User Content</label>
-			<input type="text" name="usercontent" id="usercontent">
-			</p>
-			<p>
-			<label></label>
-			<input type="submit" id="register"  value="register" >
+			<p class="register">
+			<label class="label_name">User Name</label>
+			<input type="text" name="username" class="username" value=${_username}>
+			 
+			<label class="label_pwd">User Password</label>
+			<input type="password" name="userpwd" class="userpwd" value=${_userpwd}>
+			 
+			<label class="label_content">User Content</label>
+			<input type="text" name="usercontent" class="usercontent">
+			
+			<input type="submit" class="register"  value="register" >
 			</p>
 			#{/form}
-	</div>
 #{/if}
 </div>

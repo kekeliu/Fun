@@ -19,9 +19,8 @@ public class Application extends Controller {
     	User user = User.find("byUsername", username).first();
     	 validation.required(user);
     	if(user != null){
-    		 //System.out.println(user.username);
-    		session.put("usernaem", username);
-    		Loging.log(username);
+    		session.put("username", username);
+    		Blog.blog(user);
     		return;
     	} else{
     		Register.register(username, userpwd);
