@@ -11,6 +11,11 @@ body {
     margin: auto;
 }
 
+.error .header{
+	 text-align: center;
+	 left:70%;
+}
+
 /** minterface layout **/
 .minterface .title{
 	position: absolute;
@@ -71,7 +76,7 @@ body {
 	height:50px;
 }
 
-.minterface .register .label_name{
+.minterface .register_name .label_name{
 	position:absolute;
 	top:30%;
 	right:45%;
@@ -81,7 +86,7 @@ body {
     text-align: center;
 }
 
-.minterface .register .username{
+.minterface .register_name .username{
 	position:absolute;
 	top:30%;
 	left:60%;
@@ -91,7 +96,15 @@ body {
     text-align: center;
 }
 
-.minterface .register .label_pwd{
+.minterface .register_name span{
+	position:absolute;
+	top:30%;
+	left:80%;
+    padding: 10px;
+    text-align: left;
+}
+
+.minterface .register_pwd .label_pwd{
 	position:absolute;
 	top:40%;
 	right:45%;
@@ -101,7 +114,7 @@ body {
     text-align: center;
 }
 
-.minterface .register .userpwd{
+.minterface .register_pwd .userpwd{
 	position:absolute;
 	top:40%;
 	left:60%;
@@ -110,6 +123,15 @@ body {
     background: #fff;
     text-align: center;
 }
+
+.minterface .register_pwd span{
+	position:absolute;
+	top:40%;
+	left:80%;
+    padding: 10px;
+    text-align: left;
+}
+
 
 .minterface .register .query{
 	position:absolute;
@@ -119,7 +141,7 @@ body {
 	height:50px;
 }
 
-.minterface .register .label_content{
+.minterface .register_content .label_content{
 	position:absolute;
 	top:50%;
 	right:45%;
@@ -129,7 +151,7 @@ body {
     text-align: center;
 }
 
-.minterface .register .usercontent{
+.minterface .register_content .usercontent{
 	position:absolute;
 	top:50%;
 	left:60%;
@@ -139,7 +161,15 @@ body {
     text-align: center;
 }
 
-.minterface .register .register{
+.minterface .register_content span{
+	position:absolute;
+	top:50%;
+	left:80%;
+    padding: 10px;
+    text-align: left;
+}
+
+.minterface .register_content .register{
 	position:absolute;
 	top:65%;
 	left:53%;
@@ -342,4 +372,34 @@ body {
     top: 30px;
     right: 100px;
     color: #869AB1;
+}
+
+#previous{
+	list-style: none;
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    left: 400px;
+    bottom: 90px;
+    color: #ffffff;
+}
+
+#now{
+	list-style: none;
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    right: 600px;
+    bottom: 130px;
+    color: #ffffff;
+}
+
+#next{
+	list-style: none;
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    right: 400px;
+    bottom: 100px;
+    color: #ffffff;
 }

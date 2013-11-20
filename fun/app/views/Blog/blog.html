@@ -26,7 +26,7 @@
 <div class="blogContentShow">
 #{if posts}
 #{list items:posts, as:'post'}
-<h3 class="blogAuthor">${post.author.username}   posted at ${post.postedAt.format('HH:mm:ss-yyyy-MM-dd')}</h3>
+<h3 class="blogAuthor">${post.author.username} posted at ${post.postedAt.format('HH:mm:ss-yyyy-MM-dd')}</h3>
 <h3 class="blogTitle">${post.title}</h3>
 <h3 class="blogContent">${post.content}</h3>
 #{form @Blog.publishComment(post?.id)} 

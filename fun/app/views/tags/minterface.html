@@ -3,7 +3,7 @@
 
 #{ifErrors}
 <div class="error">
-	<h2>please correct these errors</h2>
+	<h2 class="header">please correct these errors</h2>
 </div>
 #{/ifErrors}
 
@@ -26,29 +26,30 @@
 #{/if}
 #{if _as == 'register'}
 		#{form @Register.registerUser()} 
-			#{if flash.error}
-				<p class="error">${flash.error}</p>
-			#{/if}
-			<p class="register">
+			<div class="register_name">
 			<label class="label_name">User Name</label>
 			<input type="text" name="username" class="username" value=${_username}>
 			 <span class="error">#{error 'username' /}</span>
+			 </div>
 			 
+			 <div class="register_pwd">
 			<label class="label_pwd">User Password</label>
 			<input type="password" name="userpwd" class="userpwd" value=${_userpwd}>
 			 <span class="error">#{error 'userpwd' /}</span>
+			 </div>
 			 
+			 <div class="register_content">
 			<label class="label_content">User Content</label>
-			<select name = "tags"class="usercontent">
+			<select name = "usercontent"class="usercontent">
 			<option></option>
 			<option value="student">student</option>
 			<option value="job">job</option>
 			<option value="retired">retired</option>
 			</select>
 			<span class="error">#{error 'usercontent' /}</span>
-			
 			<input type="submit" class="register"  value="register" >
-			</p>
+			</div>
+			 
 			#{/form}
 #{/if}
 </div>

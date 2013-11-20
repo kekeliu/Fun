@@ -3,16 +3,14 @@
 
 <a href="@{Application.index()}" id="header">Log out</a>
 <a href="@{Blog.blog(post.author)}" id="back">Back To Blog</a>
-<h2></h2>
 
 %{ pageNum = post.comments.size() }%
-%{ pageSize = 3 }%
-%{ ePages = (int)(pageNum/pageSize) + 1}%
+%{ pageSize = 1 }%
+%{ ePages = (int)Math.ceil((pageNum/pageSize))}%
 %{ startPos = (page-1)*pageSize }%
 %{ endPos = startPos+(((pageNum - startPos) > pageSize) ? pageSize:(pageNum - startPos))-1 }%
-%{ if ((startPos >= 0) && (endPos > 0)) { }%
+%{ if ((startPos >= 0) && (endPos >= 0)) { }%
 <h1>All have ${post.comments.size()} comments</h1>
-<h2>startPos=${startPos}, endPos=${endPos}</h2>
 %{ for (i in startPos..endPos) { }%
 		<h2>
 		${post.comments[i].content} by ${post.comments[i].author} postedAt ${post.comments[i].postedAt.format('HH:mm:ss-yyyy-MM-dd')}
@@ -20,19 +18,15 @@
 %{ } }%
 %{ } }%
 #{if page == 1}
-<strong>« Previous</strong>
+<h2 id="previous">« Previous</h2>
 #{/if}
 #{else}
-<h2>
-<a href="${request.path}?id=${id}&page=${page-1}">« Previous</a>
-</h2>
+<a id="previous" href="${request.path}?id=${id}&page=${page-1}">« Previous</a>
 #{/else}
-<h2>Now=${page}</h2>
+<h2 id="now">Now=${page}</h2>
 #{if page == ePages}
-<strong>Next »</strong>
+<h2 id="next">Next »</h2>
 #{/if}
 #{else}
-<h2>
-<a href="${request.path}?id=${id}&page=${page+1}">Next »</a>
-</h2>
+<a id="next" href="${request.path}?id=${id}&page=${page+1}">Next »</a>
 #{/else}
