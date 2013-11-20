@@ -23,24 +23,4 @@ public class Loging extends Controller {
 		render();
 	}
 	
-	public static void save(Long id, String title, String content){
-		Post post;
-		String username = (String)session.get("username");
-		System.out.println("username="+username);/*
-		User author = User.find("byUsername", userName).first();
-		if(id == null){
-			 post = new Post(author, title, content);
-		}else{
-			post = Post.findById(id);
-			post.title = title;
-			post.content = content;
-		}
-		
-		validation.valid(post);
-        if(validation.hasErrors()) {
-            render("@form", post);
-        }
-        post.save();
-       log(userName);*/
-	}
 }

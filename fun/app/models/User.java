@@ -1,20 +1,24 @@
 package models;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.OneToMany;
 
+import play.data.validation.MinSize;
+import play.data.validation.Required;
 import play.db.jpa.Model;
 
 @Entity
 public class User extends Model {
 	
-	public String username;
-	public String userpwd;
+	@Required @MinSize(4) public String username;
+	@Required @MinSize(6) public String userpwd;
 	public String usercontent;
+	//public Date bornDay;
 	
 	//@OneToMany(mappedBy="user", cascade=CascadeType.ALL)
 	//public List<Post> posts;
@@ -23,6 +27,7 @@ public class User extends Model {
 		this.username = username;
 		this.userpwd = userpwd;
 		this.usercontent = usercontent;
+		//this.bornDay = new Date();
 	}
 	
 	/*public User addPost(String title, String content){

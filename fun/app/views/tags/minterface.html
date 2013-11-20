@@ -1,6 +1,12 @@
 #{extends 'main.html' /}
 #{set title:'minterface' /}
 
+#{ifErrors}
+<div class="error">
+	<h2>please correct these errors</h2>
+</div>
+#{/ifErrors}
+
 <div class="minterface">
 <h2 class="title">The ${_as} form</h2>
 #{if _as == 'login'}
@@ -26,9 +32,11 @@
 			<p class="register">
 			<label class="label_name">User Name</label>
 			<input type="text" name="username" class="username" value=${_username}>
+			 <span class="error">#{error 'username' /}</span>
 			 
 			<label class="label_pwd">User Password</label>
 			<input type="password" name="userpwd" class="userpwd" value=${_userpwd}>
+			 <span class="error">#{error 'userpwd' /}</span>
 			 
 			<label class="label_content">User Content</label>
 			<select name = "tags"class="usercontent">
@@ -37,6 +45,7 @@
 			<option value="job">job</option>
 			<option value="retired">retired</option>
 			</select>
+			<span class="error">#{error 'usercontent' /}</span>
 			
 			<input type="submit" class="register"  value="register" >
 			</p>

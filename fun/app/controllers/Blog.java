@@ -36,6 +36,7 @@ public class Blog extends Controller {
 	public static void save(Long id, String title, String content){
 		Post post;
 		if(id == null){
+			 //post = new Post(author, title, content);
 			 post = new Post(author, title, content);
 		}else{
 			post = Post.findById(id);

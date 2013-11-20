@@ -11,6 +11,16 @@ public class Register extends Controller {
 	}
 	
 	public static void registerUser(String username, String userpwd, String tags){
+		
+		validation.required(username);
+		validation.minSize(username, 4);
+		validation.required(userpwd);
+		validation.minSize(userpwd, 6);
+		
+		if(validation.hasErrors()){
+			render("@register");
+		}
+		
 		User user = new User(username, userpwd, tags).save();
 		Blog.type = 0;
 		Blog.blog(user);
