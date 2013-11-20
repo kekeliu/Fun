@@ -1,12 +1,38 @@
 #{extends 'main.html' /}
 #{set title:'commentDetailPage' /}
 
-<h1>${post.author.username}</h1>
-<h2>${post.postedAt.format('yyyy-MM-dd')}</h2>
-<h2>${post.content}</h2>
-#{if post}
-<h3>All have ${post.comments.size()} comments</h3>
-#{list items:post.comments, as:'comment'}
-<h3>${comment.content}</h3>
-#{/list}
+<a href="@{Application.index()}" id="header">Log out</a>
+<a href="@{Blog.blog(post.author)}" id="back">Back To Blog</a>
+<h2></h2>
+
+%{ pageNum = post.comments.size() }%
+%{ pageSize = 3 }%
+%{ ePages = (int)(pageNum/pageSize) + 1}%
+%{ startPos = (page-1)*pageSize }%
+%{ endPos = startPos+(((pageNum - startPos) > pageSize) ? pageSize:(pageNum - startPos))-1 }%
+%{ if ((startPos >= 0) && (endPos > 0)) { }%
+<h1>All have ${post.comments.size()} comments</h1>
+<h2>startPos=${startPos}, endPos=${endPos}</h2>
+%{ for (i in startPos..endPos) { }%
+		<h2>
+		${post.comments[i].content} by ${post.comments[i].author} postedAt ${post.comments[i].postedAt.format('HH:mm:ss-yyyy-MM-dd')}
+		</h2>
+%{ } }%
+%{ } }%
+#{if page == 1}
+<strong>« Previous</strong>
 #{/if}
+#{else}
+<h2>
+<a href="${request.path}?id=${id}&page=${page-1}">« Previous</a>
+</h2>
+#{/else}
+<h2>Now=${page}</h2>
+#{if page == ePages}
+<strong>Next »</strong>
+#{/if}
+#{else}
+<h2>
+<a href="${request.path}?id=${id}&page=${page+1}">Next »</a>
+</h2>
+#{/else}

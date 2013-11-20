@@ -11,8 +11,8 @@ import play.db.jpa.Model;
 @Entity
 public class Post extends Model{
 
-	public User author;
 	public String title;
+	public User author;
 	
 	@Lob
 	public String content;

@@ -75,8 +75,22 @@ public class Blog extends Controller {
 		 blog(author);
 	}
 	
-	public static void showAllComments(Long id){
+	public static void showAllComments(Long id,Integer page){
 		Post post = Post.findById(id);
-		render(post);
+		if(page == null)
+			page = 1;
+		render(post,page,id);
+	}
+	
+	public static void showPreviousReport(int startPosition){
+		
+	}
+	
+	public static void showAllReports(int startPosition){
+		
+	}
+	
+public static void showNextReport(int startPosition){
+		
 	}
 }

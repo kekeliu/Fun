@@ -322,3 +322,24 @@ body {
 .header .title span{
 	color: #CC0000;
 }
+
+#header{
+	list-style: none;
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    right: 0;
+    top: 30px;
+    right: 250px;
+    color: #869AB1;
+}
+
+#back{
+	list-style: none;
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    top: 30px;
+    right: 100px;
+    color: #869AB1;
+}

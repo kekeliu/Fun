@@ -24,5 +24,6 @@ public class Comment extends Model{
 		this.author = author;
 		this.content = content;
 		this.post = post;
+		this.postedAt = new Date();
 	}
 }
