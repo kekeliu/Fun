@@ -34,8 +34,9 @@ public class User extends Model {
 	}
 	
 	public User addPost(String title, String content){
-		this.posts.add(new Post(this, title, content));
-		this.save();
+		Post post = new Post(this, title, content);
+		post.save();
+		this.posts.add(post);
 		return this;
 	}
 }

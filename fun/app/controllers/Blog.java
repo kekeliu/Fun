@@ -45,11 +45,7 @@ public class Blog extends Controller {
 	}
 	
 	public static void saveComment(String comment){
-		//System.out.println("author = "+author.username);
-		Comment ncomment = new Comment(cPost,author.username,comment);
-		cPost.comments.add(ncomment);
-		ncomment.save();
-		//cPost.addComments(author.username, comment);
+		cPost.addComments(author.username, comment);
 		type = 0;
 		blog(author);
 	}

@@ -32,10 +32,9 @@ public class Post extends Model{
 	}
 	
 	public Post addComments(String author, String content){
-		System.out.println("11111");
-		this.comments.add(new Comment(this,author,content));
-		System.out.println("22222");
-		this.save();
+		Comment comment = new Comment(this,author,content);
+		comment.save();
+		this.comments.add(comment);
 		return this;
 	}
 }
