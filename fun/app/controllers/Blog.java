@@ -42,7 +42,7 @@ public class Blog extends Controller {
 		User user = User.findById(user_id);
 		post.addComments(user.username, comment);
 		type = 0;
-		blog(user.id);
+		blog(user_id);
 	}
 	public static void publishComment(Long id){
 		Post newPost;
