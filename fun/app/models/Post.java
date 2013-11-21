@@ -12,7 +12,9 @@ import play.db.jpa.Model;
 public class Post extends Model{
 
 	public String title;
-	public User author;
+	
+	@ManyToOne
+	public User user;
 	
 	@Lob
 	public String content;
@@ -21,8 +23,8 @@ public class Post extends Model{
 	@OneToMany(mappedBy="post", cascade=CascadeType.ALL,fetch=FetchType.EAGER)
 	public List<Comment> comments;
 	
-	public Post(User author, String title, String content){
-		this.author = author;
+	public Post(User user, String title, String content){
+		this.user = user;
 		this.title = title;
 		this.content = content;
 		this.postedAt = new Date();
@@ -30,7 +32,9 @@ public class Post extends Model{
 	}
 	
 	public Post addComments(String author, String content){
+		System.out.println("11111");
 		this.comments.add(new Comment(this,author,content));
+		System.out.println("22222");
 		this.save();
 		return this;
 	}

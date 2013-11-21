@@ -15,7 +15,7 @@ public class Application extends Controller {
         render();
     }
     
-    public static void checkUser(@Required String username, @Required String userpwd){
+    public static void checkUser(@Required String username){
     	User user = User.find("byUsername", username).first();
     	 validation.required(user);
     	if(user != null){
@@ -24,7 +24,7 @@ public class Application extends Controller {
     		Blog.blog(user);
     		return;
     	} else{
-    		Register.register(username, userpwd);
+    		Register.register(username);
     	}
     }
 

@@ -1,6 +1,7 @@
 package controllers;
 
 import java.security.Security;
+import java.util.ArrayList;
 import java.util.List;
 
 import models.Comment;
@@ -18,15 +19,14 @@ public class Blog extends Controller {
 	
 	public static void blog(User user){
 		author = user;
-		
+		author.save();
 		List<Post> posts = null;
 		if(type == 0){
 			posts = Post.find("order by postedAt asc ").fetch();
 		}else if(type== 1){
-			//String sql = "select p from Post p where p.author.username="+user.username+" order by postedAt asc";
-			//posts = Post.find(sql).fetch();
-			posts = Post.find("byAuthor", author).fetch();
+			posts = Post.find("byUser", author).fetch();
 		}
+		
 		render(posts, user);
 	}
 	
@@ -35,18 +35,11 @@ public class Blog extends Controller {
 	}
 	
 	public static void save(Long id, String title, String content){
-		Post post;
-		if(id == null){
-			 //post = new Post(author, title, content);
-			 post = new Post(author, title, content);
-		}else{
-			post = Post.findById(id);
-			post.title = title;
-			post.content = content;
-		}
-		
-		validation.valid(post);
-        post.save();
+	 
+		//author.addPost(title, content);
+		cPost = new Post(author, title, content);
+		//author.posts.add(cPost);
+		cPost.save();
         type = 0;
        blog(author);
 	}

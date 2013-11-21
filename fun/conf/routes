@@ -17,3 +17,6 @@ GET     /public/                                staticDir:public
 
 # Import Secure routes
 *       /                                       module:secure
+
+#use the crud
+*		/										module:crud

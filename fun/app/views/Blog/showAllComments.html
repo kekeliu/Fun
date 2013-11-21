@@ -2,7 +2,6 @@
 #{set title:'commentDetailPage' /}
 
 <a href="@{Application.index()}" id="header">Log out</a>
-<a href="@{Blog.blog(post.author)}" id="back">Back To Blog</a>
 
 %{ pageNum = post.comments.size() }%
 %{ pageSize = 1 }%

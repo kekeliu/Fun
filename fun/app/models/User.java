@@ -18,21 +18,24 @@ public class User extends Model {
 	@Required @MinSize(4) public String username;
 	@Required @MinSize(6) public String userpwd;
 	public String usercontent;
-	//public Date bornDay;
 	
-	//@OneToMany(mappedBy="user", cascade=CascadeType.ALL)
-	//public List<Post> posts;
+	public Date bornDay;
+	
+	@OneToMany(mappedBy="user", cascade=CascadeType.ALL)
+	public List<Post> posts;
+	
 	
 	public User(String username, String userpwd, String usercontent){
 		this.username = username;
 		this.userpwd = userpwd;
 		this.usercontent = usercontent;
-		//this.bornDay = new Date();
+		this.bornDay = new Date();
+		this.posts = new ArrayList<Post>();
 	}
 	
-	/*public User addPost(String title, String content){
+	public User addPost(String title, String content){
 		this.posts.add(new Post(this, title, content));
 		this.save();
 		return this;
-	}*/
+	}
 }
