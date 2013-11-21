@@ -10,7 +10,7 @@
 
 <div class="newBlog">
 <h2 class="blogHeader">New Blog</h2>
-#{form @Blog.save(post?.id) }
+#{form @Blog.save(post?.post_id,user_id) }
 		#{ifErrors}
 			<p class="error">
 			Please correct these errors.

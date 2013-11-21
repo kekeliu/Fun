@@ -12,67 +12,61 @@ import play.mvc.Controller;
 
 public class Blog extends Controller {
 	
-	public static User author;
-	public static Post cPost;
-	
 	public static int type = 0;
 	
-	public static void blog(User user){
-		author = user;
-		author.save();
+	public static void blog(Long user_id){
 		List<Post> posts = null;
+		User user = User.findById(user_id);
 		if(type == 0){
 			posts = Post.find("order by postedAt asc ").fetch();
-		}else if(type== 1){
-			posts = Post.find("byUser", author).fetch();
+		}else if(type == 1){
+			posts = Post.find("byUser", user).fetch();
 		}
 		
 		render(posts, user);
 	}
 	
-	public static void newPost(){
-		render();
+	public static void newPost(Long user_id){
+		render(user_id);
 	}
 	
-	public static void save(Long id, String title, String content){
-	 
-		//author.addPost(title, content);
-		cPost = new Post(author, title, content);
-		//author.posts.add(cPost);
-		cPost.save();
-        type = 0;
-       blog(author);
-	}
-	
-	public static void saveComment(String comment){
-		cPost.addComments(author.username, comment);
+	public static void save(Long post_id, Long user_id,String title, String content){
+		User user = User.findById(user_id);
+		user.addPost(title, content);
 		type = 0;
-		blog(author);
+		blog(user.id);
+	}
+	
+	public static void saveComment(Long post_id,Long user_id,String comment){
+		Post post = Post.findById(post_id);
+		User user = User.findById(user_id);
+		post.addComments(user.username, comment);
+		type = 0;
+		blog(user.id);
 	}
 	public static void publishComment(Long id){
 		Post newPost;
 		if(id != null){
 			newPost = Post.findById(id);
-			cPost = newPost;
 			render(newPost);
 		}
 	}
 	
-	public static void showAllBlogs(){
+	public static void showAllBlogs(Long user_id){
 		 type = 0;
-		 blog(author);
+		 blog(user_id);
 	}
 	
-	public static void showMyBlogs(){
+	public static void showMyBlogs(Long user_id){
 		 type = 1;
-		 blog(author);
+		 blog(user_id);
 	}
 	
-	public static void showAllComments(Long id,Integer page){
-		Post post = Post.findById(id);
+	public static void showAllComments(Long post_id,Integer page){
+		Post post = Post.findById(post_id);
 		if(page == null)
 			page = 1;
-		render(post,page,id);
+		render(post,page,post_id);
 	}
 	
 }

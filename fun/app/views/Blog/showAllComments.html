@@ -2,6 +2,7 @@
 #{set title:'commentDetailPage' /}
 
 <a href="@{Application.index()}" id="header">Log out</a>
+<a href="@{Blog.blog(post.user?.id)}"  id="back">BackToBlog</a>
 
 %{ pageNum = post.comments.size() }%
 %{ pageSize = 1 }%
@@ -20,12 +21,12 @@
 <h2 id="previous">« Previous</h2>
 #{/if}
 #{else}
-<a id="previous" href="${request.path}?id=${id}&page=${page-1}">« Previous</a>
+<a id="previous" href="${request.path}?post_id=${post_id}&page=${page-1}">« Previous</a>
 #{/else}
 <h2 id="now">Now=${page}</h2>
 #{if page == ePages}
 <h2 id="next">Next »</h2>
 #{/if}
 #{else}
-<a id="next" href="${request.path}?id=${id}&page=${page+1}">Next »</a>
+<a id="next" href="${request.path}?post_id=${post_id}&page=${page+1}">Next »</a>
 #{/else}

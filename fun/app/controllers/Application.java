@@ -21,7 +21,7 @@ public class Application extends Controller {
     	if(user != null){
     		session.put("username", username);
     		Blog.type = 0;
-    		Blog.blog(user);
+    		Blog.blog(user.id);
     		return;
     	} else{
     		Register.register(username);

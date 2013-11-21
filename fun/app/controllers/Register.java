@@ -25,6 +25,6 @@ public class Register extends Controller {
 		User user = new User(username, userpwd, usercontent);
 		user.save();
 		Blog.type = 0;
-		Blog.blog(user);
+		Blog.blog(user.id);
 	}
 }

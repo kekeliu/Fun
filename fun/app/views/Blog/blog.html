@@ -12,14 +12,14 @@
  </div>
 <div class="blog">
 <p class="newPost">
-<a href="@{newPost()}"><span>+</span> write a new post</a>
+<a href="@{newPost(user?.id)}"><span>+</span> write a new post</a>
 </p>
 <ul class="menu">
 <li class="${request.controller == 'AllBlogs' ?  'selected': ''}">
-<a href="@{Blog.showAllBlogs()}">AllBlogs</a>
+<a href="@{Blog.showAllBlogs(user?.id)}">AllBlogs</a>
 </li>
 <li class="${request.controller == 'MyBlogs' ?  'selected': ''}">
-<a href="@{Blog.showMyBlogs()}">MyBlogs</a>
+<a href="@{Blog.showMyBlogs(user?.id)}">MyBlogs</a>
 </li>
 </ul>
 </div>
