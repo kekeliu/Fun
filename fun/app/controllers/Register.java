@@ -11,15 +11,16 @@ import play.mvc.Controller;
 
 public class Register extends Controller {
 
+	private static String randomid = "";
+	
 	public static void register(@Required String username){
 		Random random = new Random();
 		String randomID = String.valueOf(random.nextInt());
-		System.out.println("randomID ==" + randomID);
+		randomid = randomID;
 		render(username, randomID);
 	}
 	
 	public static void captcha(String randomID){
-		System.out.println("id == " + randomID);
 		Images.Captcha captcha = Images.captcha();
 		String code = captcha.getText("#E4EAFD");
 		Cache.set(randomID, code, "10mn");
@@ -35,18 +36,15 @@ public class Register extends Controller {
 		validation.required(usercontent).message("userType is required");
 		validation.required(bornday).message("bornDay is required");
 		 
-		validation.equals(code, Cache.get(randomID)).message("Invalid code");
-		
-		System.out.println("code=="+code);
-		System.out.println("cache randomID=="+Cache.get(randomID));
+		validation.equals(code.toLowerCase(), (String.valueOf(Cache.get(randomID))).toLowerCase()).message("Invalid code");
 		
 		if(validation.hasErrors()){
 			render("@register");
 		}
-		
+		System.out.print("register name=" + username);
 		User user = new User(username, userpwd, usercontent, bornday);
 		user.save();
-		Cache.delete(randomID);
+		Cache.delete(randomid);
 		Blog.type = 0;
 		Blog.blog(user.id);
 	}

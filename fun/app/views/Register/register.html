@@ -1,4 +1,58 @@
 #{extends 'main.html' /} 
 #{set title:'Register' /}
 
-#{minterface username:username, userpwd:userpwd,as:'register' /}
+#{set 'moreScripts'}
+    <script src="@{'/public/javascripts/jquery-ui-1.7.2.custom.min.js'}" type="text/javascript" charset="${_response_encoding}"></script>
+#{/set}
+
+#{set 'moreStyles'}
+    <link rel="stylesheet" type="text/css" media="screen" href="@{'/public/ui-lightness/jquery-ui-1.7.2.custom.css'}" />
+#{/set}
+<div class="register">
+<h2 class="title">The register form</h2>
+#{form @Register.registerUser()} 
+<div class="register_name">
+	<label class="label_name">User Name</label>
+	<input type="text" name="username" class="username" value=${_username}>
+	<span class="error">#{error 'username' /}</span>
+</div>
+			 
+<div class="register_pwd">
+	<label class="label_pwd">User Password</label>
+	<input type="password" name="userpwd" class="userpwd" value=${_userpwd}>
+	<span class="error">#{error 'userpwd' /}</span>
+</div>
+			 
+<div class="register_content">
+	<label class="label_content">User Content</label>
+	<select name = "usercontent"class="usercontent">
+		<option></option>
+		<option value="student">student</option>
+		<option value="job">job</option>
+		<option value="retired">retired</option>
+	</select>
+	<span class="error">#{error 'usercontent' /}</span>
+	<input type="submit" class="register"  value="register" >
+</div>
+			
+<div class="register_bornday">
+	<label class="label_bornday">bornDay</label>
+	<input type="text" class="datepicker" name="bornday" value="${bornday}"/>
+	<span class="error">#{error 'bornday' /}</span>
+</div>
+			
+<div class="register_code">
+	<label class="label_code">enter the code:</label>
+	<img src="@{Register.captcha(randomID)}" class="iamge"/>
+	<br/>
+	<input type="text" name="code" class="code" size="18" value=""/>
+	<input type="hidden" name="randomID" value="${randomID}"/>
+</div>
+#{/form}
+</div>
+			
+<script type="text/javascript" charset="${_response_encoding}">
+    $(function() {
+		$(".datepicker").datepicker({dateFormat: 'yy-mm-dd'});
+	});
+</script>

@@ -17,7 +17,7 @@ body {
 }
 
 /** minterface layout **/
-.minterface .title{
+.register .title{
 	position: absolute;
     top: 10%;
     left:40%;
@@ -28,7 +28,18 @@ body {
     text-align: center;
 }
 
-.minterface .login .label_name{
+.login .title{
+	position: absolute;
+    top: 10%;
+    left:40%;
+    width: 400px;
+    border: 3px solid #333;
+    padding: 20px;
+    background: #fff;
+    text-align: center;
+}
+
+.login .label_name{
 	position:absolute;
 	top:30%;
 	right:45%;
@@ -38,7 +49,7 @@ body {
     text-align: center;
 }
 
-.minterface .login .username{
+.login .username{
 	position:absolute;
 	top:30%;
 	left:60%;
@@ -48,7 +59,7 @@ body {
     text-align: center;
 }
 
-.minterface .login .label_pwd{
+.login .label_pwd{
 	position:absolute;
 	top:40%;
 	right:45%;
@@ -58,7 +69,7 @@ body {
     text-align: center;
 }
 
-.minterface .login .userpwd{
+.login .userpwd{
 	position:absolute;
 	top:40%;
 	left:60%;
@@ -68,7 +79,7 @@ body {
     text-align: center;
 }
 
-.minterface .login .query{
+.login .query{
 	position:absolute;
 	top:55%;
 	left:54%;
@@ -76,7 +87,7 @@ body {
 	height:50px;
 }
 
-.minterface .register_name .label_name{
+.register .register_name .label_name{
 	position:absolute;
 	top:30%;
 	right:45%;
@@ -86,7 +97,7 @@ body {
     text-align: center;
 }
 
-.minterface .register_name .username{
+.register .register_name .username{
 	position:absolute;
 	top:30%;
 	left:60%;
@@ -96,7 +107,7 @@ body {
     text-align: center;
 }
 
-.minterface .register_name span{
+.register .register_name span{
 	position:absolute;
 	top:30%;
 	left:80%;
@@ -105,7 +116,7 @@ body {
     color: #CC0000;
 }
 
-.minterface .register_pwd .label_pwd{
+.register .register_pwd .label_pwd{
 	position:absolute;
 	top:40%;
 	right:45%;
@@ -115,7 +126,7 @@ body {
     text-align: center;
 }
 
-.minterface .register_pwd .userpwd{
+.register .register_pwd .userpwd{
 	position:absolute;
 	top:40%;
 	left:60%;
@@ -125,7 +136,7 @@ body {
     text-align: center;
 }
 
-.minterface .register_pwd span{
+.register .register_pwd span{
 	position:absolute;
 	top:40%;
 	left:80%;
@@ -134,7 +145,7 @@ body {
     color: #CC0000;
 }
 
-.minterface .register_bornday .label_bornday{
+.register .register_bornday .label_bornday{
 	position:absolute;
 	top:60%;
 	right:45%;
@@ -144,7 +155,7 @@ body {
     text-align: center;
 }
 
-.minterface .register_bornday .datepicker{
+.register .register_bornday .datepicker{
 	position:absolute;
 	top:60%;
 	left:60%;
@@ -154,7 +165,7 @@ body {
     text-align: center;
 }
 
-.minterface .register_bornday span{
+.register .register_bornday span{
 	position:absolute;
 	top:60%;
 	left:80%;
@@ -164,7 +175,7 @@ body {
     color: #CC0000;
 }
 
-.minterface .register .query{
+.register .register .query{
 	position:absolute;
 	top:55%;
 	left:54%;
@@ -172,7 +183,7 @@ body {
 	height:50px;
 }
 
-.minterface .register_content .label_content{
+.register .register_content .label_content{
 	position:absolute;
 	top:50%;
 	right:45%;
@@ -182,7 +193,7 @@ body {
     text-align: center;
 }
 
-.minterface .register_content .usercontent{
+.register .register_content .usercontent{
 	position:absolute;
 	top:50%;
 	left:60%;
@@ -192,7 +203,7 @@ body {
     text-align: center;
 }
 
-.minterface .register_content span{
+.register .register_content span{
 	position:absolute;
 	top:50%;
 	left:80%;
@@ -201,7 +212,7 @@ body {
     color: #CC0000;
 }
 
-.minterface .register_content .register{
+.register .register_content .register{
 	position:absolute;
 	top:90%;
 	left:55%;
@@ -209,7 +220,7 @@ body {
 	height:50px;
 }
 
-.minterface .register_code .label_code{
+.register .register_code .label_code{
 	position:absolute;
 	top:80%;
 	right:45%;
@@ -219,7 +230,7 @@ body {
     text-align: center;
 }
 
-.minterface .register_code .iamge{
+.register .register_code .iamge{
 	position:absolute;
 	top:70%;
 	left:45%;
@@ -229,7 +240,7 @@ body {
     text-align:center;
 }
 
-.minterface .register_code .code{
+.register .register_code .code{
 	position:absolute;
 	top:80%;
 	left:60%;
@@ -410,14 +421,6 @@ body {
     text-align: center;
     color: #869AB1;
     margin-top: 30px;
-}
-
-.newComment .commentContent{
-	
-}
-
-.newComment .commentBtn{
-	
 }
 
 .header .tools{
