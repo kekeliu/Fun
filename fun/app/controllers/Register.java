@@ -41,7 +41,7 @@ public class Register extends Controller {
 		if(validation.hasErrors()){
 			render("@register");
 		}
-		System.out.print("register name=" + username);
+		 
 		User user = new User(username, userpwd, usercontent, bornday);
 		user.save();
 		Cache.delete(randomid);

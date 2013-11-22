@@ -19,6 +19,6 @@ GET     /public/                                staticDir:public
 *       /                                       module:secure
 
 #use the crud
-*		/										module:crud
+*		/admin										module:crud
 
 GET /captcha  Register.captcha

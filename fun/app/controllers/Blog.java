@@ -28,7 +28,7 @@ public class Blog extends Controller {
 		}else if(type == 1){
 			posts = Post.find("byUser", user).fetch();
 		}
-		System.out.println("username==" + user.username);
+		
 		render(posts, user, sType);
 	}
 	
