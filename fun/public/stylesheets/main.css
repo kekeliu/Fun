@@ -102,6 +102,7 @@ body {
 	left:80%;
     padding: 10px;
     text-align: left;
+    color: #CC0000;
 }
 
 .minterface .register_pwd .label_pwd{
@@ -130,8 +131,38 @@ body {
 	left:80%;
     padding: 10px;
     text-align: left;
+    color: #CC0000;
 }
 
+.minterface .register_bornday .label_bornday{
+	position:absolute;
+	top:60%;
+	right:45%;
+    width: 200px;
+    padding: 10px;
+    background: #fff;
+    text-align: center;
+}
+
+.minterface .register_bornday .datepicker{
+	position:absolute;
+	top:60%;
+	left:60%;
+    width: 200px;
+    padding: 10px;
+    background: #fff;
+    text-align: center;
+}
+
+.minterface .register_bornday span{
+	position:absolute;
+	top:60%;
+	left:80%;
+    width: 200px;
+    padding: 10px;
+    text-align: left;
+    color: #CC0000;
+}
 
 .minterface .register .query{
 	position:absolute;
@@ -167,15 +198,47 @@ body {
 	left:80%;
     padding: 10px;
     text-align: left;
+    color: #CC0000;
 }
 
 .minterface .register_content .register{
 	position:absolute;
-	top:65%;
-	left:53%;
+	top:90%;
+	left:55%;
 	width:100px;
 	height:50px;
 }
+
+.minterface .register_code .label_code{
+	position:absolute;
+	top:80%;
+	right:45%;
+    width: 200px;
+    padding: 10px;
+    background: #fff;
+    text-align: center;
+}
+
+.minterface .register_code .iamge{
+	position:absolute;
+	top:70%;
+	left:45%;
+    width: 225px;
+    padding: 10px;
+    height:50px;
+    text-align:center;
+}
+
+.minterface .register_code .code{
+	position:absolute;
+	top:80%;
+	left:60%;
+    width: 200px;
+    padding: 10px;
+    background: #fff;
+    text-align: center;
+}
+
 
 /** newPost layout **/
 
@@ -300,6 +363,30 @@ body {
 
 .blogContentShow .blogAuthor{
 	color:#00FFFF;
+}
+
+.blogContentShow .blogAuthor a{
+	color:#00FFFF;
+	text-decoration:none;
+}
+
+.blogContentShow{
+	display:block;
+	background:;
+}
+
+.blogContentShow .blogContentShow{
+	
+}
+
+.blogContentShow .allComments{
+	color:#00000;
+	text-decoration: none;
+	 border-style: groove;
+     border-width: 3px;
+     width:400px;
+     background:#B8860B;
+     display:block;
 }
 
 .blogContentShow .blogTitle{

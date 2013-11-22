@@ -5,7 +5,7 @@
 <a href="@{Blog.blog(post.user?.id)}"  id="back">BackToBlog</a>
 
 %{ pageNum = post.comments.size() }%
-%{ pageSize = 1 }%
+%{ pageSize = 2 }%
 %{ ePages = (int)Math.ceil((pageNum/pageSize))}%
 %{ startPos = (page-1)*pageSize }%
 %{ endPos = startPos+(((pageNum - startPos) > pageSize) ? pageSize:(pageNum - startPos))-1 }%

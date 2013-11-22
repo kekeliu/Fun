@@ -19,17 +19,17 @@ public class User extends Model {
 	@Required @MinSize(6) public String userpwd;
 	public String usercontent;
 	
-	public Date bornDay;
+	public Date bornday;
 	
 	@OneToMany(mappedBy="user", cascade=CascadeType.ALL)
 	public List<Post> posts;
 	
 	
-	public User(String username, String userpwd, String usercontent){
+	public User(String username, String userpwd, String usercontent, Date bornday){
 		this.username = username;
 		this.userpwd = userpwd;
 		this.usercontent = usercontent;
-		this.bornDay = new Date();
+		this.bornday = bornday;
 		this.posts = new ArrayList<Post>();
 	}
 	
@@ -37,6 +37,13 @@ public class User extends Model {
 		Post post = new Post(this, title, content);
 		post.save();
 		this.posts.add(post);
+		return this;
+	}
+	
+	public User deletePost(Long post_id){
+		Post post = Post.findById(post_id);
+		post.delete();
+		this.posts.remove(post);
 		return this;
 	}
 }

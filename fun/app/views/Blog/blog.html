@@ -21,35 +21,44 @@
 <li class="${request.controller == 'MyBlogs' ?  'selected': ''}">
 <a href="@{Blog.showMyBlogs(user?.id)}">MyBlogs</a>
 </li>
+<li class="${request.controller == 'HomePage' ?  'selected': ''}">
+<a href="@{Blog.showMyHomePage(user?.id)}">HomePage</a>
+</li>
 </ul>
 </div>
-<div class="blogContentShow">
+#{if sType==2}
+<h2>username: ${user.username}</h2>
+<h2>usercontent: ${user.usercontent}</h2>
+<h2>userBornDay: ${user.bornday.format('yyyy-MM-dd')}</h2>
+#{/if}
+#{else}
 #{if posts}
 #{list items:posts, as:'post'}
-<h3 class="blogAuthor">${post.user.username} posted at ${post.postedAt.format('HH:mm:ss-yyyy-MM-dd')}</h3>
+<div class="blogContentShow">
+<h3 class="blogAuthor">${post.user.username} &nbsp;&nbsp;posted at ${post.postedAt.format('HH:mm:ss-yyyy-MM-dd')}
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="@{Blog.deletePost(post?.id, post.user?.id)}">✗</a>
+</h3>
 <h3 class="blogTitle">${post.title}</h3>
 <h3 class="blogContent">${post.content}</h3>
 #{form @Blog.publishComment(post?.id)} 
 <input type="submit" class="blogcomment" value="comment"/>
+#{/form}
+<a href="@{Blog.showAllComments(post?.id)}" class="allComments">
 #{if post.comments}
-<h2>All have ${post.comments.size()} comments, latest by ${post.comments[post.comments.size()-1].author}</h2>
-<h2>${post.comments[post.comments.size()-1].content}</h2>
+All have ${post.comments.size()} comments, latest by ${post.comments[post.comments.size()-1].author}
 #{/if}
 #{else}
-<h3>No comments</h3>
+No comments
 #{/else}
-#{/form}
-#{if post.comments}
-#{form @Blog.showAllComments(post?.id)} 
-<input type="submit" class="commentDetail" value="detail"/>
-#{/form}
-#{/if}
+</a>
+<br></br>
+</div>
 #{/list}
 #{/if}
 #{else}
 <h3>There are no blogs</h3>
 #{/else}
-</div>
+#{/else}
 <p class="footer">
             I just play it for fun~.
 </p>
