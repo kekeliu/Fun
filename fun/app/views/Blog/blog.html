@@ -35,8 +35,8 @@
 #{if posts}
 #{list items:posts, as:'post'}
 <div class="blogContentShow">
-<h3 class="blogAuthor">${post.user.username} &nbsp;&nbsp;posted at ${post.postedAt.format('HH:mm:ss-yyyy-MM-dd')}
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="@{Blog.deletePost(post?.id, post.user?.id)}">✗</a>
+<h3 class="blogAuthor">${post.author.username} &nbsp;&nbsp;posted at ${post.postedAt.format('HH:mm:ss-yyyy-MM-dd')}
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="@{Blog.deletePost(post?.id, post.author?.id)}">X</a>
 </h3>
 <h3 class="blogTitle">${post.title}</h3>
 <h3 class="blogContent">${post.content}</h3>

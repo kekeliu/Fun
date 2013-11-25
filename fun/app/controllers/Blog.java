@@ -26,7 +26,7 @@ public class Blog extends Controller {
 		if(type == 0){
 			posts = Post.find("order by postedAt asc ").fetch();
 		}else if(type == 1){
-			posts = Post.find("byUser", user).fetch();
+			posts = Post.find("byAuthor", user).fetch();
 		}
 		
 		render(posts, user, sType);
@@ -49,6 +49,7 @@ public class Blog extends Controller {
 	
 	public static void save(Long post_id, Long user_id,String title, String content){
 		User user = User.findById(user_id);
+		
 		user.addPost(title, content);
 		type = 0;
 		blog(user.id);

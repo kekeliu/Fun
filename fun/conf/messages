@@ -1,3 +1,12 @@
 # You can specialize this file for each language.
 # For example, for French create a messages.fr file
 #
+username=User Name
+userpwd=UserPassword
+usercontent=UserType
+bornday=BornDay
+title=PostTitle
+author=Author
+content=PostContent
+postedAt=PostedAt
+

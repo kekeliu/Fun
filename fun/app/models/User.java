@@ -8,6 +8,7 @@ import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.OneToMany;
 
+import play.data.validation.MaxSize;
 import play.data.validation.MinSize;
 import play.data.validation.Required;
 import play.db.jpa.Model;
@@ -17,11 +18,12 @@ public class User extends Model {
 	
 	@Required @MinSize(4) public String username;
 	@Required @MinSize(6) public String userpwd;
-	public String usercontent;
+	
+	@Required public String usercontent;
 	
 	public Date bornday;
 	
-	@OneToMany(mappedBy="user", cascade=CascadeType.ALL)
+	@OneToMany(mappedBy="author", cascade=CascadeType.ALL)
 	public List<Post> posts;
 	
 	

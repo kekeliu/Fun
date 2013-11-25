@@ -1,6 +1,6 @@
 <div class="newComment">
 <h1>write the comment for ${newPost.title}</h1>
-#{form @Blog.saveComment(newPost?.id,newPost.user?.id)}
+#{form @Blog.saveComment(newPost?.id,newPost.author?.id)}
 <input type="text" class="commentContent" name="comment">
 <input type="submit" class="commentBtn">
 #{/form}
