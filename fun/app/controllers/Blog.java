@@ -57,9 +57,13 @@ public class Blog extends Controller {
 	
 	public static void save(Long post_id, Long user_id,String title, String content){
 		User user = User.findById(user_id);
-		
-		user.addPost(title, content);
-		type = 0;
+		validation.required(user);
+		if(validation.hasErrors()){
+			user.refresh();
+		}else{
+			user.addPost(title, content);
+			type = 0;
+		}
 		blog(user.id);
 	}
 	
