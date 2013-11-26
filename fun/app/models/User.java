@@ -48,4 +48,8 @@ public class User extends Model {
 		this.posts.remove(post);
 		return this;
 	}
+	
+	public static User connect(String username, String userpwd){
+		return find("byUsernameAndUserpwd", username, userpwd).first();
+	}
 }

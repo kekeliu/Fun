@@ -5,6 +5,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
+import javax.persistence.Query;
+
 import com.sun.org.apache.bcel.internal.classfile.Code;
 import com.sun.xml.internal.ws.api.pipe.Codec;
 
@@ -12,11 +14,13 @@ import models.Comment;
 import models.Post;
 import models.User;
 import play.cache.*;
+import play.db.jpa.JPA;
 import play.mvc.Controller;
 
 public class Blog extends Controller {
 	
 	public static int type = 0;
+	private static String  url = "";
 	
 	public static void blog(Long user_id){
 		
@@ -24,9 +28,13 @@ public class Blog extends Controller {
 		List<Post> posts = null;
 		User user = User.findById(user_id);
 		if(type == 0){
-			posts = Post.find("order by postedAt asc ").fetch();
+			url = "select p from Post p order by postedAt asc";
+			posts = Post.find(url).fetch();
+			//posts = Post.find("order by postedAt asc").fetch();
 		}else if(type == 1){
-			posts = Post.find("byAuthor", user).fetch();
+			url = "select p from Post p where p.author.id=" + user_id + "order by postedAt asc"; 
+			posts = Post.find(url).fetch();
+			//posts = Post.find("byAuthor", user).fetch();
 		}
 		
 		render(posts, user, sType);
