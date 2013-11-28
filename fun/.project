@@ -21,5 +21,8 @@
 <link><name>crud</name><type>2</type><location>D:/MyDoc/play-1.2.4/modules/crud/app</location></link>
 <link><name>conf/crud</name><type>2</type><location>D:/MyDoc/play-1.2.4/modules/crud/conf</location></link>
 <link><name>public/crud</name><type>2</type><location>D:/MyDoc/play-1.2.4/modules/crud/public</location></link>
+<link><name>paginate-head</name><type>2</type><location>D:/MyDoc/play-1.2.4/modules/paginate-head/app</location></link>
+<link><name>conf/paginate-head</name><type>2</type><location>D:/MyDoc/play-1.2.4/modules/paginate-head/conf</location></link>
+<link><name>public/paginate-head</name><type>2</type><location>D:/MyDoc/play-1.2.4/modules/paginate-head/public</location></link>
 </linkedResources>
 </projectDescription>

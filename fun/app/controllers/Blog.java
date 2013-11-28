@@ -1,20 +1,11 @@
 package controllers;
 
-import java.security.Security;
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Random;
 
-import javax.persistence.Query;
-
-import com.sun.org.apache.bcel.internal.classfile.Code;
-import com.sun.xml.internal.ws.api.pipe.Codec;
-
-import models.Comment;
 import models.Post;
 import models.User;
-import play.cache.*;
-import play.db.jpa.JPA;
+
+import play.modules.paginate.ValuePaginator;
 import play.mvc.Controller;
 
 public class Blog extends Controller {
@@ -94,9 +85,11 @@ public class Blog extends Controller {
 	
 	public static void showAllComments(Long post_id,Integer page){
 		Post post = Post.findById(post_id);
-		if(page == null)
+		ValuePaginator paginator = new ValuePaginator(post.comments);
+		paginator.setPageSize(3);
+		if(page == null || page < 0)
 			page = 1;
-		render(post,page,post_id);
+		paginator.setPageNumber(page);
+		render(post,post_id,paginator);
 	}
-	
 }
